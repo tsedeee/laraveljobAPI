@@ -44,6 +44,7 @@ class ApiContactController extends Controller
         $contact->phone = $request->phone;
         $contact->save();
         return response()->json($contact);
+        
     }
 
     /**
