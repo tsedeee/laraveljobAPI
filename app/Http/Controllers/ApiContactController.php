@@ -14,7 +14,8 @@ class ApiContactController extends Controller
      */
     public function index()
     {
-        //
+        $contacts = Contact::all();
+        return response()->json($contacts);
     }
 
     /**
@@ -55,7 +56,8 @@ class ApiContactController extends Controller
      */
     public function show($id)
     {
-        //
+        $contact = Contact::findOrFail($id);
+        return response()->json($contact);
     }
 
     /**
