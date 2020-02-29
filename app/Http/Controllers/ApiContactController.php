@@ -45,7 +45,6 @@ class ApiContactController extends Controller
         $contact->phone = $request->phone;
         $contact->save();
         return response()->json($contact);
-        
     }
 
     /**
@@ -80,7 +79,12 @@ class ApiContactController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $contact = Contact::findOrFail($id);
+        $contact->name = $request->name;
+        $contact->address = $request->address;
+        $contact->phone = $request->phone;
+        $contact->save();
+        return response()->json($contact);
     }
 
     /**
@@ -91,6 +95,8 @@ class ApiContactController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $contact = Contact::findOrFail($id);
+        $contact->delete();
+        return response()->json($contact);
     }
 }
